@@ -1,0 +1,23 @@
+var salt = createSprite (200, 200);
+salt.setAnimation("salt");
+salt.rotation = 150;
+World.frameRate = 10
+var shakes = 0;
+
+function draw() {
+  background("skyblue");
+  
+  // If mouseDidMove, rotate the salt shaker randomly to the left or right
+  if(mouseDidMove()){
+    if(shakes < 100){
+    salt.rotation = randomNumber(130,170)
+    shakes += 1
+    } else {
+      salt.rotation = 0
+    }
+  }
+
+    textSize(30);
+    text(shakes,335,60);
+  drawSprites();
+}
