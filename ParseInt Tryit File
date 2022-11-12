@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>JavaScript Global Methods</h1>
+<h2>The parseInt() Method</h2>
+<input type="text" id="number" value="0">
+<br><br>
+<input type="text" id="number2" value="0">
+<p>parseInt() parses a string and returns the first integer:</p>
+<button onclick="number()"> Execute </button>
+<p id="demo"></p>
+
+<script>
+function number() {
+	var text = parseInt(document.getElementById("number").value)
+    var text2 = parseInt(document.getElementById("number2").value)
+    var num = text + text2
+    document.getElementById("demo").innerText = num;
+}
+</script>
+
+</body>
+</html>
