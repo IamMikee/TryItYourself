@@ -1,0 +1,35 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+     <title> Try it yourself </title>
+ </head>
+
+ <body>
+     <h1> Insert your Number of repeats </h1>
+     <input type="text" id="num" value="0">
+     <h2> Insert your Starting Number </h2>
+     <input type="text" id="start" value="0">
+     <h2> Insert your starting Interval </h2>
+     <input type="number" id="interval" value="0">
+    <button onclick="newFunction()"> Submit </button>
+    <br> <br>
+     <p id="demo"></p>
+     <script>
+         function newFunction(){
+            let str = 0
+            let repeat = parseInt(document.getElementById("num").value)
+            let string = parseInt(document.getElementById("start").value)
+            let interval = parseInt(document.getElementById("interval").value)
+
+            for(i= 0 ; i< repeat ; i++){
+		        console.log("amount" + interval)
+                string += interval
+                console.log(string)
+                document.getElementById("demo").innerText = string
+                interval += 1
+            }
+            
+         }
+    </script>
+</body>
+</html>
