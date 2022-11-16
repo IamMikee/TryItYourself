@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Try js with repetition</title>
+</head>
+
+<body style="background-color:beige">
+<script>
+let i = 10;
+let num = 0;
+
+function myloop(){
+    setTimeout(function() {
+        if(i <= 10){
+        console.log(i)
+        i -= 1
+        if(i <= 10) {myloop()} else {
+            console.log("passed")
+        }
+        document.getElementById("demo").innerText = i} else{
+            document.getElementById("died").innerText = "Error, please refresh the page."
+        }
+    }, 500); boom()
+}
+
+function boom() {
+    setTimeout(function() {
+    let string = ""
+    for(b = 1 ; b < 11 ; b++){
+        string += b + "\n" //or " ";
+        console.log(string)
+    } document.getElementById("boom").innerHTML = string
+    }, 7000);
+}
+
+</script>
+<button onclick="myloop()">Click me!</button>
+<h1 style="text-align: center;" id="demo"></h1>
+<br>
+<p id="died"></p>
+<p id="boom" style="font-size: large;"></p>
+</body>
+</html>
