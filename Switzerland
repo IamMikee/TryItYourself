@@ -1,0 +1,30 @@
+from turtle import *
+
+color("red")
+begin_fill()
+forward(125)
+right(90)
+forward(125)
+right(90)
+forward(125)
+end_fill()
+
+penup()
+right(90)
+forward(100)
+right(90)
+forward(50)
+left(90)
+pendown()
+
+color("white")
+begin_fill()
+for i in range(4):
+  right(90)
+  forward(25)
+  right(90)
+  forward(25)
+  left(90)
+  forward(25)
+
+end_fill()
