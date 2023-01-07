@@ -28,7 +28,7 @@
                 document.getElementById("demo").innerText = string
                 interval += 1
             }
-            //fasdfds
+
          }
     </script>
 </body>
