@@ -1,0 +1,91 @@
+body {
+  background-color: orange;
+  font-size: 24px;
+}
+
+.heading-related, .related-post, .related {
+  background-color: rgb(252,216,148);
+  font-size: 20px;
+}
+
+.heading-related {
+  font-size: 30px;
+  text-align: center;
+  padding-top: 20px;
+  text-decoration: underline overline;
+  margin-bottom: -5px;
+}
+
+.related-post {
+  display: inline-block;
+  padding: 60px 10px;
+}
+
+.navigation {
+  padding-top: 30px;
+  margin: auto 60px;
+  font-size: 22px;
+  text-align: center;
+  padding-bottom: 40px;
+  display: inline-block;
+  letter-spacing: 1.5px;
+}
+
+.nav-link {
+  display: inline-block;
+  padding: 10px 50px;
+  /*margin: 10px 50px;*/
+}
+
+.header {
+  color: rgb(247, 231, 195);
+  font-size: 36px;
+  text-align: center;
+  margin: 10px;
+}
+
+.featured {
+  width: 70%;
+  margin: 20px;
+  float: right;
+  border-radius: 5px;
+  border-color: rgb(255, 244, 97);
+  border-style: dotted;
+  border-width: 10px;
+}
+
+.thumbnail {
+  width: 250px;
+  display: inline-block;
+  margin: 10px auto ;
+  margin-left: 30px;
+}
+
+.quote, .sig {
+  padding-top: 70px;
+  padding-bottom: 70px;
+  font-size: 25px;
+  font-style: italic;
+  color: rgb(242, 255, 184)
+}
+
+.main-content {
+  margin-left: 20px;
+  color: rgb(255, 252, 212)
+}
+
+.heading-blog {
+  font-size: 40px;
+  text-align:center;
+  padding-top: 30px;
+  color: rgb(50, 124, 255)
+}
+
+.blog-content {
+  margin-top: 50px;
+  color: rgb(255, 252, 220)
+}
+
+.slogan {
+ color: rgb(241, 252, 192); 
+}
