@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 start: while(true){
 let sentence = prompt("Insert your encrypted text")
     let kalimat = sentence
