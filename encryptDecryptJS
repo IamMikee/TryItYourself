@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 let kill = 0
 let kalimat = ""
 
