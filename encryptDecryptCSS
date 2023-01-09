@@ -1,0 +1,53 @@
+.awal {
+    text-align: center;
+}
+
+p {
+    font-size: 22px;
+    margin: auto 20%;
+}
+
+body {
+    background-color: lightblue;
+    text-align: center;
+}
+
+hr {
+    border: 2px solid black;
+}
+
+h4 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+input {
+    display:inline-block;
+    width:60%;
+    margin: auto 20%;
+    border-radius: 2px;
+    border: 2px dashed black;
+    padding: 10px 5px;
+}
+
+button {
+    border-radius:3px;
+    border:3px solid black;
+    padding: 10px 20px;
+}
+
+button:hover {
+    background-color: darkgray;
+}
+
+.fail {
+    color:red;
+    font-size: 16px;
+    text-align: left;
+}
+
+.buttonreset {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-top: 100px;
+}

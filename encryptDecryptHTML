@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Encrypter/Decrypter</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <script src="encrypt test.js"></script>
+
+        <!--content-->
+        <div class="awal">
+        <h1>Encrypter and Decrypter</h1>
+        <h2>From Ancient Coding</h2>
+        </div>
+        <br><br><br>
+        <div class="content">
+            <h2>Please input your message/text.</h2>
+            <input type="text" id="text" value="">
+            <p id="fail" class="fail"></p>
+        </div><br><br><br>
+        <div class="button">
+            <button onclick="encrypter()">Encrypt</button>
+            <button onclick="decrypter()">Decrypt</button>
+        </div><br><hr><br><br>
+
+        <!--final result-->
+        <p id="final"></p>
+        <br><br><br><br>
+        <button class="buttonreset" onclick="reset()">Reset</button>
+        <h4>&copy Made by Michael Lika</h4>
+    </body>
+</html>
