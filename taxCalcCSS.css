@@ -1,0 +1,11 @@
+.finalnum {
+    display:inline-block;
+    text-align:right;
+}
+
+.finaltext {
+    display:inline-block;
+    text-align:right;
+    width:50%;
+    margin-right:30px;
+}
