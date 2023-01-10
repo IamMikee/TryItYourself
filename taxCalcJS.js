@@ -29,9 +29,10 @@ let fee
 
 function run(){
   //defining
-  price = parseInt(document.getElementById("price").value)
-  tax = parseInt(document.getElementById("tax").value)
-  fee = parseInt(document.getElementById("fee").value)
+  price = parseFloat(document.getElementById("price").value)
+  tax = parseFloat(document.getElementById("tax").value)
+  fee = parseFloat(document.getElementById("fee").value)
+  console.log(price,tax,fee)
   
   function test(){
     if(isNaN(tax)){
