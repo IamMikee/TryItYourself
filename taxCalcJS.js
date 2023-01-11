@@ -1,41 +1,38 @@
-let space = `&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp`
-let space2 = `&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp`
-let space3 = `&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp`
-let selector = 0
 let str = 0
 let price
 let tax
 let fee
 
 
-function select(){
-    let ans = document.getElementById("select").value
-    if(ans == "enable"){
-        selector = 1
-        console.log(selector)
-        let html1 = '<input type="text" id="fee" value="">'
-        let html2 = '<button onclick="run()">Calculate</button>'
-        document.getElementById("feediv").innerHTML = html1;
-        document.getElementById("submitbutt").innerHTML = html2;
-        document.getElementById("selecting").remove();
-
-    } else if(ans == "disable"){
-        selector = 0
-        let html2 = '<button id="hitung" onclick="run()">Calculate</button>'
-        document.getElementById("selecting").remove();
-        document.getElementById("servfee").remove();
-        document.getElementById("submitbutt").innerHTML = html2;
-    }
-    
-  }
+//function select(){
+//    let ans = document.getElementById("select").value
+//    if(ans == "enable"){
+//        selector = 1
+//        console.log(selector)
+//        let html1 = '<input type="text" id="fee" value="">'
+//        let html2 = '<button onclick="run()">Calculate</button>'
+//        document.getElementById("feediv").innerHTML = html1;
+//        document.getElementById("submitbutt").innerHTML = html2;
+//        document.getElementById("selecting").remove();
+//
+//   } else if(ans == "disable"){
+//        selector = 0
+//        let html2 = '<button id="hitung" onclick="run()">Calculate</button>'
+//        document.getElementById("selecting").remove();
+//        document.getElementById("servfee").remove();
+//        document.getElementById("submitbutt").innerHTML = html2;
+//    }
+//    
+//  }
 
 
 
 function run(){
   //defining
-  price = parseInt(document.getElementById("price").value)
-  tax = parseInt(document.getElementById("tax").value)
-  fee = parseInt(document.getElementById("fee").value)
+  price = parseFloat(document.getElementById("price").value)
+  tax = parseFloat(document.getElementById("tax").value)
+  fee = parseFloat(document.getElementById("fee").value)
+  console.log(price,tax,fee)
   
   function test(){
     if(isNaN(tax)){
@@ -47,12 +44,16 @@ function run(){
         test();
     }
     if(isNaN(price)){
-        document.getElementById("fail").innerHTML = `Price must <b>NOT</b> be zero.`
+        document.getElementById("fail").innerHTML = `Price must <b>NOT</b> be zero. Reloading in 2 seconds.`
         setTimeout(() => {location.reload()},2000)
     } else return str = 1;}
   test()
+          
+  let space = `&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp`
+  let space2 = `&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp`
+  let space3 = `&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp`
   
-  if(selector == 1 && str == 1){calculate(price,tax,fee)}
+  if(str == 1){calculate(price,tax,fee)}
     
   function calculate(p,t,f){
     let startp = price
