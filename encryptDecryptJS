@@ -4,6 +4,7 @@ let kill = 0
 let kalimat = ""
 
 function encrypter() {
+    document.getElementById("final").innerHTML = " "
     kalimat += document.getElementById("text").value;
     let code
     let result=""
@@ -41,6 +42,7 @@ function encrypter() {
 
 
 function decrypter() {
+    document.getElementById("final").innerHTML = " "
     kalimat += document.getElementById("text").value;
     let code
     let result = ""
