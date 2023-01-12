@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
 let kill = 0
-let kalimat = ""
 
 function encrypter() {
-    kalimat += document.getElementById("text").value;
+    let kalimat = String(document.getElementById("text").value)
     let code
     let result=""
 
@@ -13,12 +12,10 @@ function encrypter() {
         kill = 1
     } else {
         document.getElementById("fail").innerHTML = " "
-    
 
     let arr = kalimat.slice('');
     for(i=0;i<arr.length; i++){
         code = kalimat.charCodeAt(i);
-        console.log(code, " code")
         code += 3
         if(code > 122 && code < 126) {
             code -= 26
@@ -37,11 +34,11 @@ function encrypter() {
     }
     console.log(result)
     document.getElementById("final").innerHTML = `Your encrypted message is<br><b>${result}</b>`
-}}
+   }}
 
 
 function decrypter() {
-    kalimat += document.getElementById("text").value;
+    let kalimat = String(document.getElementById("text").value)
     let code
     let result = ""
 
@@ -50,12 +47,10 @@ function decrypter() {
         kill = 1
     } else {
         document.getElementById("fail").innerHTML = " "
-    
 
     let arr = kalimat.slice("")
     for(i=0;i<arr.length;i++){
         code = kalimat.charCodeAt(i)
-        console.log(code);
         code -= 3
         if(code < 97 && code >93) {
             code +=26
@@ -74,7 +69,7 @@ function decrypter() {
     }
     console.log(result)
     document.getElementById("final").innerHTML = `Your decrypted message is<br><b>${result}</b>`
-}}
+   }}
 
 function reset() {
     location.reload()
