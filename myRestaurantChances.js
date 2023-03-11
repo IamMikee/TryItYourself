@@ -1,5 +1,4 @@
 let temp;
-
 function chance(start, mult, perc) {
     let total = 0
     temp = start*(perc/100)
