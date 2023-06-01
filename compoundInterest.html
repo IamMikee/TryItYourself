@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Compound Interest Calculator</title>
+    <link rel="stylesheet" href="compoundInterest.css">
+</head>
+
+<body>
+    <h1>Compound Interest Calculator</h1>
+    <h2 class="title">Compounded Monthly, Quarterly, Yearly</h2>
+    <h2>Starting Money</h2>
+    <input type="text" id="money" value=""><br><br>
+
+    <h2>Percentage of Interest per Amount of Time</h2>
+    <input type="text" id="percent" value=""><p class="percent"> %</p> <br><br>
+
+    <h2>Choose the Interest Interval</h2>
+    <div id="buttons">
+    <button class="interval" onclick="yearly()">Yearly</button>
+    <button class="interval" onclick="quarterly()">Quarterly</button>
+    <button class="interval" onclick="monthly()">Monthly</button>
+    </div>
+
+    <br><br>
+    <div id="timediv"></div>
+    <br><br>
+    <p id="result"></p>
+    <br>
+    <p id="differ"></p>
+    <br><br>
+    <button onclick="reset()">Reset</button>
+ 
+    <script src="compoundInterest.js"></script>
+
+</body>
+</html>
