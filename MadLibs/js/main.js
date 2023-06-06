@@ -1,7 +1,8 @@
 
 
 //testing
-$("#run").click(press())
+$("#run").on('click', press())
+
 function press() {
     var input = document.getElementById("input1").value;
     var result = document.getElementById("resulttest");
