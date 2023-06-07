@@ -9,21 +9,27 @@
 </head>
 
 <body>
-  <!-- Heading -->
-  <h1 class="headtitle">Mad Libs</h1>
-  <h3 class="instructTitle">Please Select A Story:</h3>
+  <div id="heading">
+    <!-- Heading -->
+    <h1 class="headtitle" id="headtitle">Mad Libs</h1>
+    <h3 class="instructTitle">Please Select A Story:</h3>
 
 
-  <!-- Content -->
-  <div class="container">
-    
-    <button id="1" class="btnsel">1</button>
-    <button id="2" class="btnsel">2</button>
-    <p id="resulttest"></p>
+    <!-- Content -->
+    <div class="container" class="inactive">
+      
+      <button id="1" class="btnsel">1</button>
+      <button id="2" class="btnsel">2</button>
+      <button id="3" class="btnsel">3</button>
+      <p id="resulttest"></p>
+    </div>
+    <div id="container">
+      <button id="select" class="selected" onclick="selectclick()">Select</button><br>
+      <p class="inactive" id="errorselect">You've already ran the program! Press reset if you'd like to go back.</p>
+      <p class="inactive" id="invalinput">Please select a story before continuing.</p>
+    </div>
   </div>
-  <div id="container">
-    <button id="select" class="selected" onclick="selectclick()">Select</button>
-  </div>
+
 <br><br><br>
 
   <!-- Heading -->
@@ -43,17 +49,22 @@
         </ol>
       </div>
 
-      <button onclick="run()">RUN</button>
+      <button onclick="run()">Finish</button>
     </div><br>
     <button onclick="reset()" id="button1">Reset</button>
     <p id="resulttest"></p>
   </div>
-
+  <div id="bronly"></div>
+  <div id="footer">
+    <h5>&copy Michael L. (P) & Shaun W.P. (I)</h5>
+  </div>
+<br><br>
+  <div id="extras"></div>
 
 <!-- Script -->
-  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="js/main.js" defer></script>
-  <!-- <script src="js/execute.js" type="module"></script> -->
+  <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="./js/main.js" defer></script>
+  <!-- <script src="./js/execute.js" type="module"></script> -->
   <script>
     let n = 0;
     $('.selected').on('click', function() {

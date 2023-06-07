@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "jquery": "^3.7.0"
+  },
+  "name": "madlibs",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Michael L",
+  "license": "ISC",
+  "description": ""
+}
