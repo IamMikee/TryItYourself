@@ -24,36 +24,12 @@
   <div id="container">
     <button id="select" class="selected" onclick="selectclick()">Select</button>
   </div>
-<br><br><br>
-
-  <!-- Heading -->
-  <h3 class="instructTitle">Instructions:</h3>
-  <ul class="instructions">
-    <li>Fill in the boxes with the required words.</li>
-    <li>Click on the button "Finish" when every box is filled.</li>
-  </ul>
-
-
-  <!-- Content -->
-  <div class="container">
-    <div class="wordInput">
-      <p>Please fill in the boxes below.</p>
-      <ol id="list">
-      </ol>
-    </div>
-
-    <button onclick="run()">RUN</button>
-    <button onclick="reset()" id="button1">Reset</button>
-    <p id="resulttest"></p>
-  </div>
 
 
 <!-- Script -->
   <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/util.js"></script>
-  <script>
-    let module = require("./js/util.js")
+  <script src="js/main.js" defer></script>
+  <script type="module">
     let n = 0;
     $('.selected').on('click', function() {
         $(this).attr('id', `selectedbtn`)
@@ -83,6 +59,5 @@
     // .selected -> select button class
     // #select -> select button id
   </script>
-  
 </body>
 </html>
