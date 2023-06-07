@@ -1,12 +1,13 @@
-let library = require("./util.js");
-var array = library.array;
-console.log(array)
-
 let m;
 function addup(param) {
     m = param;
     console.log("success")
 }
+
+$('mainGame.html').on('load', function() {
+    console.log("Success")
+    $('#content').hide();
+})
 
 //appending all the inputs
 function appending() {
@@ -50,10 +51,32 @@ function reset() {
     location.reload();
 }
 
-function warning() {
-    return "Reload this page? You will lose your progress."
-}
-window.onbeforeunload = warning;
+// function warning() {
+//     return "Reload this page? You will lose your progress."
+// }
+// window.onbeforeunload = warning;
+
+var arr = [
+    arr1 = [
+        "A verb",
+        "A noun",
+        "A place"
+    ], 
+    arr2 = [
+        "A time",
+        "A suffix"
+    ]
+]
+
+// function proc() {
+//     var el = document.createElement('button');
+//     el.setAttribute('id', 'select');
+//     el.setAttribute('class', 'selected');
+//     el.setAttribute('onclick', 'selectclick();beforeenter()')
+//     var text = document.createTextNode('Select');
+//     el.appendChild(text);
+//     $('#container').append(el);
+// }
 
 // function press() {
 //     var input = document.getElementById("input1").value;

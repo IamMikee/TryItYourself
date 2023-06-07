@@ -1,4 +1,4 @@
-exports.arr = [
+var arr = [
     arr1 = [
         "A verb",
         "A noun",
@@ -9,3 +9,5 @@ exports.arr = [
         "A suffix"
     ]
 ]
+
+export { arr };

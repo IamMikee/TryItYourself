@@ -27,22 +27,24 @@
 <br><br><br>
 
   <!-- Heading -->
-  <h3 class="instructTitle">Instructions:</h3>
-  <ul class="instructions">
-    <li>Fill in the boxes with the required words.</li>
-    <li>Click on the button "Finish" when every box is filled.</li>
-  </ul>
+  <div id="content">
+    <h3 class="instructTitle">Instructions:</h3>
+    <ul class="instructions">
+      <li>Fill in the boxes with the required words.</li>
+      <li>Click on the button "Finish" when every box is filled.</li>
+    </ul>
 
 
-  <!-- Content -->
-  <div class="container">
-    <div class="wordInput">
-      <p>Please fill in the boxes below.</p>
-      <ol id="list">
-      </ol>
-    </div>
+    <!-- Content -->
+    <div class="container">
+      <div class="wordInput">
+        <p>Please fill in the boxes below.</p>
+        <ol id="list">
+        </ol>
+      </div>
 
-    <button onclick="run()">RUN</button>
+      <button onclick="run()">RUN</button>
+    </div><br>
     <button onclick="reset()" id="button1">Reset</button>
     <p id="resulttest"></p>
   </div>
@@ -50,10 +52,9 @@
 
 <!-- Script -->
   <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/util.js"></script>
+  <script src="js/main.js" defer></script>
+  <!-- <script src="js/execute.js" type="module"></script> -->
   <script>
-    let module = require("./js/util.js")
     let n = 0;
     $('.selected').on('click', function() {
         $(this).attr('id', `selectedbtn`)
@@ -69,17 +70,6 @@
         // } else {console.log("done")}
         // proc();
     })
-
-    // function proc() {
-    //     var el = document.createElement('button');
-    //     el.setAttribute('id', 'select');
-    //     el.setAttribute('class', 'selected');
-    //     el.setAttribute('onclick', 'selectclick();beforeenter()')
-    //     var text = document.createTextNode('Select');
-    //     el.appendChild(text);
-    //     $('#container').append(el);
-    // }
-    
     // .selected -> select button class
     // #select -> select button id
   </script>
