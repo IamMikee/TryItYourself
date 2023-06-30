@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Javascript Stopwatch Project</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="heading">
+            <h1>STOPWATCH</h1>
+            <h2>Vanilla Javascript Stopwatch Project</h2>
+            <h3 style="font-size: 20px;">(s:ms)</h3>
+        </div>
+        
+        <div class="time" id="time">
+            <p id="result" class="result"></p>
+        </div>
+
+        <div class="buttons" id="buttons">
+            <button id="start">Start</button>
+            <button id="resume">Resume</button>
+            <button id="stop">Stop</button>
+            <button id="reset">Reset</button>
+            <button id="lap">Lap</button>
+        </div>
+        <div id="containerLap">
+            <div id="lapDiv">
+                <h2>LAP:</h2>
+            </div>
+        </div>
+
+        <script src="./jquery/dist/jquery.min.js"></script>
+        <script src="stopwatch.js" defer></script>
+    </body>
+</html>
