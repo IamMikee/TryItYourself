@@ -149,7 +149,7 @@ $(document).ready(() => {
     console.log("Ready");
 
     //variables
-    let active = 0;
+    let active = 2;
     let allow = 0;
     let proc = 0;
     let proc2 = 0;
@@ -242,7 +242,7 @@ $(document).ready(() => {
 
     //start button listener
     startBtn.addEventListener('click', () => {
-        if(active === 0) {
+        if(active === 2) {
             start()
         } else if(active === 1) {
             console.error("Already running")
