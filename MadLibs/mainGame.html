@@ -9,28 +9,42 @@
 </head>
 
 <body>
-  <div id="heading">
+  <div id="heading-container">
     <!-- Heading -->
-    <h1 class="headtitle" id="headtitle">Mad Libs</h1>
-    <h3 class="instructTitle">Please Select A Story:</h3>
+    <div id="heading">
+      <h1 class="headtitle" id="headtitle">Mad Libs</h1>
+    </div>
 
+    <!-- Random/Not randon -->
+    <div id="randomizer-container" class="active">
+      <h3 class="instructRandomTitle">Do you want a random story? Click on "Random" if you want to pick random story, and click on "Choose" to choose a specific story.</h3>
+      <button id="randompick">Random</button>
+      <button id="choosepick">Choose</button>
+    </div>
 
     <!-- Content -->
-    <div class="container" class="inactive">
-      
-      <button id="1" class="btnsel">1</button>
-      <button id="2" class="btnsel">2</button>
-      <button id="3" class="btnsel">3</button>
-      <p id="resulttest"></p>
-    </div>
-    <div id="container">
-      <button id="select" class="selected" onclick="selectclick()">Select</button><br>
-      <p class="inactive" id="errorselect">You've already ran the program! Press reset if you'd like to go back.</p>
-      <p class="inactive" id="invalinput">Please select a story before continuing.</p>
+    <div id="btn-container" class="inactive">
+      <div id="btnlist">
+        <h3 class="instructChooseTitle">Please Select A Story:</h3>
+        <button id="1" class="btnsel">1</button>
+        <button id="2" class="btnsel">2</button>
+        <button id="3" class="btnsel">3</button>
+        <button id="4" class="btnsel">4</button>
+        <button id="5" class="btnsel">5</button>
+        <button id="6" class="btnsel">6</button>
+        <button id="7" class="btnsel">7</button>
+        <p id="resulttest"></p>
+      </div>
+      <div id="select-container">
+        <button id="select" class="selected" onclick="selectclick()">Select</button><br>
+        <p class="inactive" id="errorselect">You've already ran the program! Press reset if you'd like to go back.</p>
+        <p class="inactive" id="invalinput">Please select a story before continuing.</p>
+      </div>
     </div>
   </div>
-
+  <div id="br2">
 <br><br><br>
+  </div>
 
   <!-- Heading -->
   <div id="content">
@@ -50,6 +64,9 @@
       </div>
 
       <button onclick="run()">Finish</button>
+      <p class="inactive" id="errorinput">Please fill ALL of the boxes.</p>
+      <br>
+      <p id="finish"></p>
     </div><br>
     <button onclick="reset()" id="button1">Reset</button>
     <p id="resulttest"></p>

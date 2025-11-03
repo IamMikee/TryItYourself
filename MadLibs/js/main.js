@@ -1,22 +1,53 @@
 let dev = "";
 let m;
+//m is story pick
 let activity = 0;
 
-function addup(param) {
-    m = param;
-}
 
-// function hidediv() {
-//     $('#content').hide();
-// }
+
 
 //========DOCS READY========
 $(document).ready(() => {
+    //for content hide
     if(!$('#content').hasClass('inactive')) {
         $('#content').addClass('inactive');
     } else {
         console.log($('#content').attr('class'))
     }
+
+    //for br on page
+    for(i=0;i<8;i++) {
+        $('#bronly').append('<br>')
+    }
+
+    //for developer mode
+    var title = document.getElementById('headtitle');
+    title.addEventListener('click', function() {
+        dev += 'e'
+        console.log("+1")
+        if(dev === 'eefeef') {
+            initdevmode();
+        }
+    })
+    title.addEventListener('copy', () => {
+        dev += 'f'
+        console.log("++1")
+        if(dev === 'eefeef') {
+            initdevmode();
+        }
+    })
+
+    //for randomizer-choose eventlistener
+    var elrand = document.getElementById('randompick');
+    var elchoose = document.getElementById('choosepick')
+    elrand.addEventListener('click', () => {
+        var rand = 'rand'
+        chooseRandom(rand);
+    });
+    elchoose.addEventListener('click', () => {
+        var pick = 'pick'
+        chooseRandom(pick);
+    })
 });
 
 
@@ -28,18 +59,22 @@ let allowaccess = 0;
 
 function appending() {
     let timeout = 0;
-    if(activity == 0.5) {
+    if(activity == 1) {
         for(i=0;i<arr[m].length;i++) {
             var ol = document.getElementById("list");
             var list = document.createElement('li');
             var text = document.createTextNode(`${String(arr[m][i])}: `);
             list.appendChild(text);
             var el = document.createElement('input');
-            el.setAttribute('type', 'text');
-            el.setAttribute('id', `input${i}`);
+            var obj = {
+                'type': 'text',
+                'id': `input${i}`,
+                'value': ''
+            }
+            attrfunc(el, obj)
             list.appendChild(el);
             ol.appendChild(list);
-            activity = 1
+            activity = 0
         }
     } else {
         if($('#errorselect').hasClass('inactive') && timeout === 0) {
@@ -76,7 +111,7 @@ function selectclick() {
 function contentcheck() {
     if(allowaccess === 1) {
         if($('#content').hasClass('inactive') && m !== -1) {
-            activity = 0.5;
+            activity = 1;
             $("#content").removeClass('inactive').addClass('active');
             appending();
         } else {
@@ -86,12 +121,77 @@ function contentcheck() {
     }
 }
 
+function chooseRandom(choice) {
+    if($('#randomizer-container').hasClass('active')) {
+        $('#randomizer-container').removeClass('active').addClass('inactive');
+    } else {
+        console.error('Randomizer container already has inactive class')
+    }
+    if(choice == 'rand') {
+        addup(Math.floor(Math.random() * storyarr.length))
+        activity = 1;
+        if($('#content').hasClass('inactive')) {
+            $('#br2').hide();
+            $("#content").removeClass('inactive').addClass('active');
+        } else {
+            console.error("Content is already active")
+        }
+        console.log("random pick")
+        appending();
+    } else if(choice == 'pick') {
+        activateChoose();
+    }
+}
+
+function activateChoose() {
+    if($('#btn-container').hasClass('inactive')) {
+        $('#btn-container').removeClass('inactive').addClass('active');
+        console.log('non-random pick.');
+    } else {
+        console.error('Container already has \'active\' class.')
+    }
+}
+
 function invalidstory() {
     if($('#invalinput').hasClass('inactive')) {
         $('#invalinput').removeClass('inactive').addClass('active');
         setTimeout(() => {
             $('#invalinput').removeClass("active").addClass('inactive');
         }, 2000)
+    }
+}
+
+function run() {
+    let val = "";
+    let story = storyarr[m];
+    let conststory = story.split('{}')
+    let splstory = story.split('{}');
+    let strtest = "";
+    for(j=0;j<conststory.length-1;j++) {
+        var doc = document.getElementById(`input${j}`).value;
+        if(doc == "" || doc == " ") {
+            strtest += "x"
+        } else {
+            strtest += "v"
+        }
+    }
+    if(!strtest.includes('x')) {
+        for(i=0;i<conststory.length-1;i++) {
+            val = document.getElementById(`input${i}`).value;
+            splstory.splice((i*2)+1, 0, val);
+        }
+        console.log(splstory);
+        let final = splstory.join('');
+        document.getElementById('finish').innerText = final
+    } else {
+        if($('#errorinput').hasClass('inactive')) {
+            $('#errorinput').removeClass('inactive').addClass('active');
+            setTimeout(() => {
+                $('#errorinput').removeClass('active').addClass('inactive')
+            }, 2000);
+        } else {
+            console.error('Error is already Active')
+        }
     }
 }
 
@@ -106,29 +206,10 @@ function attrfunc(el, attr) {
     }
 }
 
-//br function to shift down
-$(document).ready(() => {
-    for(i=0;i<8;i++) {
-        $('#bronly').append('<br>')
-    }
-
-    //for developer mode
-    var title = document.getElementById('headtitle');
-    title.addEventListener('click', function() {
-        dev += 'e'
-        console.log("+1")
-        if(dev === 'eefeef') {
-            initdevmode();
-        }
-    })
-    title.addEventListener('copy', () => {
-        dev += 'f'
-        console.log("++1")
-        if(dev === 'eefeef') {
-            initdevmode();
-        }
-    })
-});
+//addup function
+function addup(param) {
+    m = param;
+}
 
 //(DEV)developer mode tools
 function initdevmode() {
@@ -186,11 +267,17 @@ function convpy() {
 
 
 
+
 //Reset
 function reset() {
     confirm("Are you sure you want to reload this page? You will lose all your progress.")
     location.reload();
 }
+
+function warning() {
+    return "Confirm"
+}
+window.onbeforeunload = warning;
 
 
 
@@ -206,11 +293,6 @@ function after() {
     document.getElementById("resulttest").innerText = n
 }
 
-function warning() {
-    return "Reload this page? You will lose your progress."
-}
-window.onbeforeunload = warning;
-
 function proc() {
     var el = document.createElement('button');
     el.setAttribute('id', 'select');
@@ -218,7 +300,7 @@ function proc() {
     el.setAttribute('onclick', 'selectclick();beforeenter()')
     var text = document.createTextNode('Select');
     el.appendChild(text);
-    $('#container').append(el);
+    $('#select-container').append(el);
 }
 
 function press() {
@@ -286,31 +368,113 @@ var arr = [
         "Color",
         "Plural Noun",
         "Verb"
+    ],
+    arr4 = [
+        "Noun",
+        "Color",
+        "Number",
+        "Place",
+        "Continous Verb",
+        "Family Member 1",
+        "Family Member 2",
+        "Family Member 3",
+        "Name of Book",
+        "Dessert",
+        "Flavor",
+        "Number",
+        "Type of Candy",
+        "Dessert Flavor",
+        "Fruit",
+        "Dessert Topping",
+        "Food"
+    ],
+    arr5 = [
+        "Adjective",
+        "Superlative",
+        "Noun",
+        "Adjective",
+        "Noun",
+        "Adjective",
+        "Noun",
+        "Verb",
+        "Noun",
+        "Verb",
+        "Noun",
+        "Adjective",
+        "Adjective",
+        "Plural Noun",
+        "City",
+        "Noun",
+        "Noun"
+    ],
+    arr6 = [
+        "Name",
+        "Verb",
+        "Subject in School",
+        "Body Part",
+        "A Sound",
+        "Color",
+        "Body Part",
+        "Adjective",
+        "Verb",
+        "Emotion",
+        "Noun",
+        "Adjective",
+        "Noun"
+    ],
+    arr7 = [
+        "Adjective",
+        "Verb",
+        "Verb",
+        "Name",
+        "Length Of Time",
+        "Body Part",
+        "Interjection",
+        "Superlative",
+        "Place",
+        "Adverb",
+        "Noun",
+        "Food",
+        "Plural Animal",
+        "Noun",
+        "Number",
+        "Verb",
+        "Adjective",
+        "Salutation"
     ]
 ]
 
 var storyarr = [
-    `Hello, my fellow {noun1} in 2020, it\'s me, George Washington, the first {job1}. I am writting from (the) {place1}, where I have been secretly living for the past {num1} years. I am concerned by the {adj1} state of affairs in America these days. It seems that your politicians are more concered with {verb1} one another than with listening to the {noun2} of the people. WHen we declared our independence from (the) {place2}, we set forth on a/an {adj2} path guided by the voices of the everyday {noun3}. If we\'re going to keep {verb2}, then we need to learn how to respect all {noun4}. Don\' get me wrong; we had {adj3} problems in my day, too. Benjamin Franklin once called me a/an {noun5} and kick me in the {body1}. But at the end of the day, we were able to {verb3} in harmony. Let us find that {adj4} spirit once again, or else I\'m taking my {body2} off the quarter!`,
+    `Hello, my fellow {} in 2020, it\'s me, George Washington, the first {}. I am writting from (the) {}, where I have been secretly living for the past {} years. I am concerned by the {} state of affairs in America these days. It seems that your politicians are more concered with {} one another than with listening to the {} of the people. WHen we declared our independence from (the) {}, we set forth on a/an {} path guided by the voices of the everyday {}. If we\'re going to keep {}, then we need to learn how to respect all {}. Don\' get me wrong; we had {} problems in my day, too. Benjamin Franklin once called me a/an {} and kick me in the {}. But at the end of the day, we were able to {} in harmony. Let us find that {} spirit once again, or else I\'m taking my {} off the quarter!`,
     
-    `It was a {adj1}, cold November day. I woke up to the {adj2} smell of {bird} roasting in the {room} downstairs. I {verb1} down the stairs to see if I could help {verb2} the dinner. My mom said, "See if {rel} needs a fresh {noun1}." So I carried a tray of glasses full of {liq} into the {verb3} room. When I got there, I couldn\'t believe my {body}! There were {noun2} {verb4} on the {noun3}!`,
+    `It was a {}, cold November day. I woke up to the {} smell of {} roasting in the {} downstairs. I {} down the stairs to see if I could help {} the dinner. My mom said, "See if {} needs a fresh {}." So I carried a tray of glasses full of {} into the {} room. When I got there, I couldn\'t believe my {}! There were {} {} on the {}!`,
     
-    `Sonic\'s abode is a very {adj1} place. At first glance, it seems like a/an {adj2} cave, but if you look closer, you\'ll see it\'s actually a comfortable {noun1}. For one, Sonic has a super-cozy beanbag {noun2}. When he feels like listening to some {adj3} tunes from the 1980s, Sonic turns on his old-school {noun3}, pulls out his collection of {pnoun1}, and jams out. In addition to great tunes, Sonic has plenty of {adj4} equipment to keep him busy. There\'s a dryer that Sonic uses as a treadmill to run {num1} miles a day. He has a/an {col1} Ping-Pong table where he plays against . . . himself. (His record is {num2} wins and zero losses!) And for that final touch, Sonic hung {pnoun2} all over his cave walls. He\'s got a/an {adj5} photo of (the) {place1} next to a/an {col2} poster of {pnoun3}. It may not be much, but Sonic loves to {verb1} in his cave all the time!`
+    `Sonic\'s abode is a very {} place. At first glance, it seems like a/an {} cave, but if you look closer, you\'ll see it\'s actually a comfortable {}. For one, Sonic has a super-cozy beanbag {}. When he feels like listening to some {} tunes from the 1980s, Sonic turns on his old-school {}, pulls out his collection of {}, and jams out. In addition to great tunes, Sonic has plenty of {} equipment to keep him busy. There\'s a dryer that Sonic uses as a treadmill to run {} miles a day. He has a/an {} Ping-Pong table where he plays against . . . himself. (His record is {} wins and zero losses!) And for that final touch, Sonic hung {} all over his cave walls. He\'s got a/an {} photo of (the) {} next to a/an {} poster of {}. It may not be much, but Sonic loves to {} in his cave all the time!`,
+
+    `Summer is here! The {} is shinning, the sky is {}, and the weather is so warm! In fact, it\'s {} degrees outside! I can\'t wait to visit the neighborhood {} and go {}!\n\nWhen we go to the pool, everyone in my family likes to spend the time a little differently. {} likes to race down the water slides, while {} jumps as far as possible off the high dive! {} likes to sit by the pool and read {} without even getting in the water!\n\nAfter go swimming, we like to go out for {}. My favorite ice cream flavor is {}. I get {} scoops and add the following toppings: {}, {}, {}, and {}! Summer nights are the best. At the end of the day, there\'s nothing like gathering arond the campfire roasting {}!`,
+
+    `My cubicle is {}. It is the {} cubicle in the office. I have a {} on my desk next to a/an {} {}. In my drawer, I also have a/an {} {}. One time a coworker tried to {} a {} on my desk. I said to him, "Hey!" how would you like it if I {} your {} ? I\'ll do it if you don\'t leave.\n\nMy one complaint about my cubicle is that it is {}. I think everyone here at the office complains about this. We also complain that our cubicle is {}. If we had money in our budget, my boss could purchase some {} to help alleviate this problem. Our boss doesn\'t understand. His office is the size of {}. He has enough room in his office to put a {} and a {} in there.`,
+
+    `Dear {},\n\nThe first time I saw you my heart {} with joy. We were in {} class and you raise your {} to ask a question. Your voice sounded like {}. Then I noticed you {} {}. It is so {}! Overall, I {} you. I would tell you who I am but I\'m too {}. Just know that the {} you recieve on Valentine\'s Day is from me. I hope you think it\'s {}.\nLove,\nYour {} Admirer`,
+
+    `It was a {}, summer afternoon when he {} by me and said, "Hey." My eyes {} as my heartbeat fluttered. In that instant I knew {} and I would love each other for {}.\n\n"Hey," I said back. Then he looked deep into my {} and replied, "{}, you are the {} girl I have ever seen."\n\nWe sat in the {} and stared at each other for hours. As his hand {} touched my hand, sparks flew. \n\nWe talked about {} and other important details of our lives. He loved {} and {} almost as much as I loved him. He offered to show me his {} collection. For {} days we talked and {}. The warm summer days turned {} and he had to leave. I didn\'t even get to say {}.`
 ]
 
 var strtemp = `Adjective: 
-Adjective: 
-Noun: 
-Noun: 
-Adjective: 
-Noun: 
-Plural Noun: 
-Adjective: 
-Number: 
-Color: 
-Number: 
-Plural Noun: 
-Adjective: 
+Verb: 
+Verb: 
+Name: 
+Length Of Time: 
+Body Part: 
+Interjection: 
+Superlative: 
 Place: 
-Color: 
-Plural Noun: 
-Verb: `
+Adverb: 
+Noun: 
+Food: 
+Plural Animal: 
+Noun: 
+Number: 
+Verb: 
+Adjective: 
+Salutation: `
